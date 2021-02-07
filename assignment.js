@@ -10,9 +10,12 @@ console.log(inputKilometer);
 
 // Problem-2
 const budgetCalculator = function (watch, phone, laptop) {
-    let sumOfItems = 0;
-    sumOfItems += 50 * watch + 100 * phone + 500 * laptop;
-    return sumOfItems;
+    if (watch > 0 && phone > 0 && laptop > 0) {
+        let sumOfItems = 0;
+        sumOfItems += 50 * watch + 100 * phone + 500 * laptop;
+        return sumOfItems;
+    } else if (watch === 0 || phone === 0 || laptop === 0) return 0;
+    else return `Quantity of items can't be negative'`;
 };
 const inputItems = budgetCalculator(5, 3, 2);
 console.log(inputItems);
@@ -20,10 +23,11 @@ console.log(inputItems);
 // Problem-3
 const hotelCost = function (numberOfDays) {
     let costOfLiving = 0;
+    if (numberOfDays < 0) return `Days can't be negative`;
     for (let i = 1; i <= numberOfDays; i++) {
         if (i >= 1 && i <= 10) costOfLiving += 100;
-        else if (i >= 11 && i <= 20) costOfLiving += 100 - 20;
-        else costOfLiving += 100 - 50;
+        else if (i >= 11 && i <= 20) costOfLiving += 80;
+        else costOfLiving += 50;
     }
     return costOfLiving;
 };
@@ -32,15 +36,14 @@ console.log(inputDays);
 
 // Problem-4
 const megaFriend = function (friends) {
+    if (friends.length == 0) return `Array can't be empty`;
     let firstElement = friends[0];
     for (let i = 0; i < friends.length; i++) {
         let restOfTheElements = friends[i];
         if (restOfTheElements.length > firstElement.length)
             firstElement = restOfTheElements;
-        else if (restOfTheElements.length == 0)
-            return `Name field can't be empty`;
     }
     return firstElement;
 };
-const inputFriends = megaFriend(['Rakib', 'Mehedi', 'Rabbi', 'Raihan', 'Sufy']);
+const inputFriends = megaFriend(['Rakib', 'Mehedi', 'Rabbi', 'Raihan', 'Sufi']);
 console.log(inputFriends);
