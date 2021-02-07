@@ -21,8 +21,8 @@ console.log(inputItems);
 const hotelCost = function (numberOfDays) {
     let costOfLiving = 0;
     for (let i = 1; i <= numberOfDays; i++) {
-        if (i <= 10) costOfLiving += 100;
-        else if (i <= 20) costOfLiving += 100 - 20;
+        if (i >= 1 && i <= 10) costOfLiving += 100;
+        else if (i >= 11 && i <= 20) costOfLiving += 100 - 20;
         else costOfLiving += 100 - 50;
     }
     return costOfLiving;
